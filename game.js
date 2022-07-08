@@ -201,3 +201,8 @@ gameOver = () => {
 reload = () => {
   window.location.reload()
 }
+
+window.addEventListener('load', function () {
+  document.getElementById('lost').style.display = 'none'
+  startGame()
+})
