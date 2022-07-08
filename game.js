@@ -16,6 +16,27 @@ var components = {
   }
 }
 
+placeSingleBomb = (bombs) => {
+  var newRow, newColumn, row, col
+  newRow = Math.floor(Math.random() * components.numOfRows)
+  newColumn = Math.floor(Math.random() * components.numOfColumns)
+  row = bombs[newRow]
+
+  if (!row) {
+    row = []
+    bombs[newRow] = row
+  }
+
+  col = row[newColumn]
+
+  if (!col) {
+    row[newColumn] = true
+    return
+  } else {
+    placeSingleBomb(bombs)
+  }
+}
+
 createTable = () => {
   var table, row, td, i, j
   table = document.createElement('table')
