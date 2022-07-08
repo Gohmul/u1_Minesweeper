@@ -110,10 +110,6 @@ function CellListeners(td, i, j) {
         this.warned = true
         this.textContent = components.flag
       }
-
-      event.preventDefault()
-      event.stopPropagation()
-
       return false
     } else {
       handleCellClick(this, i, j)
