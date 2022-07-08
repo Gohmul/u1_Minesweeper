@@ -180,3 +180,19 @@ adjacentWarnings = (row, col) => {
   }
   return numWarnings
 }
+
+function AdjacentBombs(row, col) {
+  var i, j, cell
+
+  for (i = -1; i < 2; i++) {
+    for (j = -1; j < 2; j++) {
+      if (i === 0 && j === 0) {
+        continue
+      }
+      cell = document.getElementById(cellID(row + i, col + j))
+      if (!!cell && !cell.clicked && !cell.warned) {
+        handleCellClick(cell, row + i, col + j)
+      }
+    }
+  }
+}
