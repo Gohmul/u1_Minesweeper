@@ -16,6 +16,11 @@ var components = {
   }
 }
 
+startGame = () => {
+  components.bombs = placeBombs()
+  document.getElementById('field').appendChild(createTable())
+}
+
 placeSingleBomb = (bombs) => {
   var newRow, newColumn, row, col
   newRow = Math.floor(Math.random() * components.numOfRows)
