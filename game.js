@@ -42,6 +42,10 @@ placeSingleBomb = (bombs) => {
   }
 }
 
+cellID = (i, j) => {
+  return 'cell-' + i + '-' + j
+}
+
 createTable = () => {
   var table, row, td, i, j
   table = document.createElement('table')
@@ -57,4 +61,83 @@ createTable = () => {
     table.appendChild(row)
   }
   return table
+}
+
+function CellListeners(td, i, j) {
+  td.addEventListener('mousedown', function (event) {
+    if (!components.alive) {
+      return
+    }
+    components.mousewhiches += event.which
+    if (event.which === 3) {
+      return
+    }
+    if (this.warned) {
+      return
+    }
+    this.style.backgroundColor = 'lightGrey'
+  })
+
+  td.addEventListener('mouseup', function (event) {
+    if (!components.alive) {
+      return
+    }
+
+    if (this.clicked && components.mousewhiches == 4) {
+      performMassClick(this, i, j)
+    }
+
+    components.mousewhiches = 0
+
+    if (event.which === 3) {
+      if (this.clicked) {
+        return
+      }
+      if (this.warned) {
+        this.warned = false
+        this.textContent = ''
+      } else {
+        this.warned = true
+        this.textContent = components.flag
+      }
+
+      event.preventDefault()
+      event.stopPropagation()
+
+      return false
+    } else {
+      handleCellClick(this, i, j)
+    }
+  })
+
+  td.oncontextmenu = function () {
+    return false
+  }
+}
+
+handleCellClick = (cell, i, j) => {
+  if (!components.alive) {
+    return
+  }
+
+  if (cell.warned) {
+    return
+  }
+
+  cell.clicked = true
+
+  if (components.bombs[i][j]) {
+    cell.style.color = 'red'
+    cell.textContent = components.bomb
+    gameOver()
+  } else {
+    cell.style.backgroundColor = 'lightGrey'
+    numOfBombs = adjacentBombs(i, j)
+    if (numOfBombs) {
+      cell.style.color = components.colors[numOfBombs]
+      cell.textContent = numOfBombs
+    } else {
+      AdjacentBombs(i, j)
+    }
+  }
 }
