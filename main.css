@@ -9,6 +9,15 @@ body {
     font-size: xx-large;
 }
 
+button {
+    width: 200px;
+    height: 60px;
+    background-color:rgb(49, 3, 3);
+    color: rgb(243, 5, 5);
+    font-weight: bolder;
+    font-size: x-large;
+    
+}
 
 header {
     background-color: black;
