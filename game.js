@@ -197,3 +197,7 @@ gameOver = () => {
   components.alive = false
   document.getElementById('lost').style.display = 'block'
 }
+
+reload = () => {
+  window.location.reload()
+}
