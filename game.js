@@ -165,3 +165,18 @@ adjacentBombs = (row, col) => {
   }
   return numOfBombs
 }
+
+adjacentWarnings = (row, col) => {
+  var i, j, numWarnings
+  numWarnings = 0
+
+  for (i = -1; i < 2; i++) {
+    for (j = -1; j < 2; j++) {
+      cell = document.getElementById(cellID(row + i, col + j))
+      if (!!cell && cell.warned) {
+        numWarnings++
+      }
+    }
+  }
+  return numWarnings
+}
