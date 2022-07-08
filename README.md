@@ -1,7 +1,15 @@
 # Project 1 - Building A Browser Game
 
 ![game](https://miro.medium.com/max/1600/1*dQzFEaAHwxouaImAuUd3EQ.gif)
+## ABOUT ##
+- I plan on making a minesweeper game 
+## CONCEPT OF THE GAME ##
+-  a puzzle game which the player will select a cell in a square grid continuously. Each cell hides a bomb or a value which displays the number of bombs in it’s neighboring cells. Just to make it clear, neighboring cells are defined as adjacent horizontally, vertically or diagonally.
+## HOW IM GOING TO GET STARTED ##
+first thing im going to do is make the cells where the bombs and neighbor numbers will be placed, then im going to add a bomb that is randomly placed for future refference.
+then im going to make it so multiple bombs can be inputed and randomized dependind on the size of the grid, then im going to create the actual game functions such as checkWin function and makeMap functions.
 
+FORGOT TO COMMIT WHILE I WAS WORKING, HAD TO REFORK AND ADD COMMITS
 
 ## Task
 
