@@ -151,3 +151,17 @@ handleCellClick = (cell, i, j) => {
     }
   }
 }
+
+adjacentBombs = (row, col) => {
+  var i, j, numOfBombs
+  numOfBombs = 0
+
+  for (i = -1; i < 2; i++) {
+    for (j = -1; j < 2; j++) {
+      if (components.bombs[row + i] && components.bombs[row + i][col + j]) {
+        numOfBombs++
+      }
+    }
+  }
+  return numOfBombs
+}
