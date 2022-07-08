@@ -21,6 +21,16 @@ startGame = () => {
   document.getElementById('field').appendChild(createTable())
 }
 
+placeBombs = () => {
+  var i,
+    rows = []
+
+  for (i = 0; i < components.numOfBombs; i++) {
+    placeSingleBomb(rows)
+  }
+  return rows
+}
+
 placeSingleBomb = (bombs) => {
   var newRow, newColumn, row, col
   newRow = Math.floor(Math.random() * components.numOfRows)
